@@ -12,8 +12,6 @@ generator client {
 }
 
 
-// schema.prisma
-
 
 model Post {
   id        String  @id @default(cuid())
@@ -30,12 +28,12 @@ model Account {
   type               String
   provider           String
   providerAccountId  String  @map("provider_account_id")
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
+  refresh_token      String?
+  access_token       String?
   expires_at         Int?
   token_type         String?
   scope              String?
-  id_token           String? @db.Text
+  id_token           String?
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
@@ -72,6 +70,7 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
 
 
 
